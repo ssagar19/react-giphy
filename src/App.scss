@@ -13,8 +13,10 @@ body {
 .gif {
     transition: all 0.5s;
     padding: 5px 5px;
+    &:hover {
+        transform: scale(1.2);
+    }
 }
-
 .loader {
     color: rgb(166, 255, 0);
 }
@@ -25,10 +27,9 @@ input[type="text"] {
 button {
     background-color: rgb(39, 163, 163) !important;
 }
-.m-2 form {
-    display: flex;
-    justify-content: center;
-}
-.gif:hover {
-    transform: scale(1.2);
+.m-2 {
+    form {
+        display: flex;
+        justify-content: center;
+    }
 }
