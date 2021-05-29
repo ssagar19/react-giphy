@@ -23,7 +23,6 @@ const Giphy = () => {
                     "https://api.giphy.com/v1/gifs/trending?api_key=hZ7mmre1MO3P756r2fAh5lCKNGrGrKdE&limit=100"
                 );
                 const results = await response.json();
-
                 setData(results.data);
             } catch (err) {
                 setIsError(true);
