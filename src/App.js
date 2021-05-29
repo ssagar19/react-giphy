@@ -1,5 +1,5 @@
 import Giphy from "./components/Giphy";
-import "./App.css";
+import "./App.scss";
 const App = () => {
     return (
         <div>
