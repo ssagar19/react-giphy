@@ -33,6 +33,7 @@ const Giphy = () => {
         };
         fetchData();
     }, []);
+    //use effect ends here
 
     const renderGifs = () => {
         if (isLoading) {
@@ -46,6 +47,8 @@ const Giphy = () => {
             );
         });
     };
+    // render gifs ends here
+
     const renderError = () => {
         if (isError) {
             return (
@@ -58,6 +61,9 @@ const Giphy = () => {
             );
         }
     };
+
+    // rendrErron ends here
+
     const handleSearchChange = async (e) => {
         setSearch(e.target.value);
         const response = await fetch(
