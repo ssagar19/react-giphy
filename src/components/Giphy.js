@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Loader from "./Loader";
+import Form from "./Form";
 import Paginate from "./Paginate";
+import renderError from "./renderError";
 
 const Giphy = () => {
     const [data, setData] = useState([]);
@@ -17,7 +19,6 @@ const Giphy = () => {
         const fetchData = async () => {
             setIsError(false);
             setIsLoading(true);
-
             try {
                 const response = await fetch(
                     "https://api.giphy.com/v1/gifs/trending?api_key=hZ7mmre1MO3P756r2fAh5lCKNGrGrKdE&limit=100"
@@ -33,6 +34,7 @@ const Giphy = () => {
         };
         fetchData();
     }, []);
+    //use effect ends here
 
     const renderGifs = () => {
         if (isLoading) {
@@ -46,18 +48,8 @@ const Giphy = () => {
             );
         });
     };
-    const renderError = () => {
-        if (isError) {
-            return (
-                <div
-                    className="alert alert-primary alert-dismissible fade show"
-                    role="alert"
-                >
-                    Unable to get Gifs, please try again in a few minutes
-                </div>
-            );
-        }
-    };
+    // render gifs ends here
+
     const handleSearchChange = async (e) => {
         setSearch(e.target.value);
         const response = await fetch(
@@ -90,23 +82,12 @@ const Giphy = () => {
     };
     return (
         <div className="m-2">
-            {renderError()}
-            <form className="form-inline justify-content-center m-2">
-                <input
-                    value={search}
-                    onChange={handleSearchChange}
-                    type="text"
-                    placeholder="search"
-                    className="form-control"
-                />
-                <button
-                    onClick={handleSubmit}
-                    type="submit"
-                    className="btn btn-primary mx-2"
-                >
-                    Search
-                </button>
-            </form>
+            <renderError isError={isError} />
+            <Form
+                search={search}
+                handleSubmit={handleSubmit}
+                handleSearchChange={handleSearchChange}
+            />
             <Paginate
                 pageSelected={pageSelected}
                 currentPage={currentPage}
