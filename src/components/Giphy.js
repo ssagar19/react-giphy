@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Loader from "./Loader";
 import Form from "./Form";
 import Paginate from "./Paginate";
+import renderError from "./renderError";
 
 const Giphy = () => {
     const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ const Giphy = () => {
         };
         fetchData();
     }, []);
+    //use effect ends here
 
     const renderGifs = () => {
         if (isLoading) {
@@ -46,18 +48,8 @@ const Giphy = () => {
             );
         });
     };
-    const renderError = () => {
-        if (isError) {
-            return (
-                <div
-                    className="alert alert-primary alert-dismissible fade show"
-                    role="alert"
-                >
-                    Unable to get Gifs, please try again in a few minutes
-                </div>
-            );
-        }
-    };
+    // render gifs ends here
+
     const handleSearchChange = async (e) => {
         setSearch(e.target.value);
         const response = await fetch(
@@ -90,7 +82,7 @@ const Giphy = () => {
     };
     return (
         <div className="m-2">
-            {renderError()}
+            <renderError isError={isError} />
             <Form
                 search={search}
                 handleSubmit={handleSubmit}
