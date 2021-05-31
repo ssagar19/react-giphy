@@ -13,9 +13,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### :star: App Features!
 
  - Search for gifs;
- - 
+  
  - Zoom Hover Effect :point_left:
- -  
+   
  - Pagination
 
 <br>
