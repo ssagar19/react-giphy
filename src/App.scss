@@ -1,33 +1,104 @@
 body {
     background-color: #89d4cf;
-    height: 100%;
+    height: 150vh;
     background-image: linear-gradient(315deg, #89d4cf 0%, #6e45e1 74%);
 }
-.gifs {
-    margin: 0 auto;
-    width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+nav {
+    margin-top: 25px;
 }
-.gif {
-    transition: all 0.5s;
-    width: 30%;
-    height: 100%;
-    padding: 5px 5px;
-    &:hover {
-        transform: scale(1.2);
+ul.pagination {
+    justify-content: center !important;
+}
+// .gifs {
+//     margin: 0 auto;
+//     width: 80%;
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: space-evenly;
+// }
+
+@media screen and (max-width: 400px) {
+    #photos {
+        margin-top: 15px;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
+    }
+    #photos img {
+        /* Just in case there are inline attributes */
+        width: 100% !important;
+        height: auto !important;
     }
 }
+
+// .gif {
+//     transition: all 0.5s;
+//     width: 30%;
+//     height: 100%;
+//     padding: 5px 5px;
+//     &:hover {
+//         transform: scale(1.2);
+//     }
+// }
+
+@media (min-width: 420px) {
+    .gifs {
+        position: relative;
+        max-width: 80%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-rows: minmax(200px, auto);
+        margin: 20px auto;
+        grid-auto-flow: dense;
+        grid-gap: 10px;
+    }
+    .gif {
+        background-color: #f6f0c4;
+        border-radius: 25px;
+        background-image: linear-gradient(315deg, #f6f0c4 0%, #d99ec9 74%);
+        padding: 10px;
+        display: grid;
+        place-items: center;
+        color: #fff;
+        transition: all 0.3s;
+        margin-top: 40px;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.page-link {
+    margin-left: 4px;
+}
+#page-item a {
+    padding: 7px 15px;
+    background: #f18704;
+    color: #ecdede;
+    border-radius: 50%;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s;
+}
+
+#page-item a:hover {
+    background: #e6a14d;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
 .loader {
     color: rgb(166, 255, 0);
 }
 input[type="text"] {
     width: 400px;
     display: inline;
+
+    border-radius: 33px;
 }
 button {
     background-color: rgb(39, 163, 163) !important;
+
+    border-radius: 33px !important;
 }
 .m-2 {
     form {
